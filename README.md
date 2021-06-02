@@ -2,8 +2,7 @@
 This is an interview work sample for EDEN. It entails developing a SPA to consume a REST API that was provided. 
 
 ##### The application features should allow:
-1. Users to see a list of at least 100 dog images by default when they load the application. 
-*The api has 50 as the maximum request* 
+1. Users to see a list of at least 100 dog images by default when they load the application.  
 2. Users be able to click on a dog image and be routed to a page where there’s more information about the dog.
 3. Users should be able to search for a dog via their breeds.
 
@@ -16,9 +15,12 @@ This is an interview work sample for EDEN. It entails developing a SPA to consum
 6. The codebase should be component based, clean, maintainable and reusable.
 7. The application should have a very neat and decent UI.
 
+##### Issues Encountered 
+1. The api has a maximum amount of 50 as the number of random images it can send. 
+
 
 ## Working Demo 
-This [application]() is hosted on Netlify.
+This [application](https://amazing-pare-62e287.netlify.app/) is hosted on Netlify.
 
 ## Project setup on local
 ```

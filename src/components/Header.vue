@@ -14,13 +14,17 @@
                 <span class="header__title"> {{ appTitle }} </span>
             </router-link>
             <div class="search">
-                <input type="text" role="searchbox" autocomplete="on" aria-label="Search by Dog Breed" 
-                    placeholder="Search by dog breed" class="search__input">
+                <form action="">
+                    <input type="text" role="searchbox" autocomplete="on" 
+                        aria-label="Search by Dog Breed" placeholder="Search by dog breed" 
+                        name="search" class="search__input"
+                    >
                 <svg aria-label="Search Icon" viewBox="0 0 24 24" class="search__view">
                     <path fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" 
                           d="M9.5 17a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15zm12.007 4.507l-6.694-6.694">
                     </path>
                 </svg>
+                </form>
             </div>
         </div>
     </header>
@@ -75,7 +79,7 @@ export default {
         font-size:16px;
         padding: 0 40px 0 15px;
         color: var(--grash-100);
-        height: 50px;
+        height:40px;
         width:100%;
         outline:none;
         border:1px solid var(--grash-500);
@@ -90,7 +94,16 @@ export default {
 
         &:focus {
             border-color:var(--grash-200);
+            @media(prefers-color-scheme: dark) {
+                border-color:var(--grash-400);
+            }
         }
+      }
+      ::placeholder {
+       color: var(--grash-100);
+         @media(prefers-color-scheme: dark) {
+             color:var(--grash-500);
+         }
       }
       &__view {
         position: absolute;
