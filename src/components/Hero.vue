@@ -2,13 +2,13 @@
     <section class="hero">
         <div class="hero__img">
             
-                <img sizes="(max-width: 1400px) 100vw, 1400px"
+                <img sizes="(max-width: 1920px) 100vw, 19200px"
             srcset="../assets/images/heroimg_200.jpg 200w,
             ../assets/images/heroimg_658.jpg 658w,
             ../assets/images/heroimg_981.jpg 981w,
             ../assets/images/heroimg_1243.jpg 1243w,
             ../assets/images/heroimg_1400.jpg 1400w"
-            src="../assets/images/heroimg_1400.jpg"
+            src="../assets/images/heroimg_1920.jpg"
             alt="Two Beautiful Dogs"
             width="1400"
             height="962">

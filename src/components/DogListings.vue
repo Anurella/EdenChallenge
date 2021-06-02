@@ -4,7 +4,7 @@
             <router-link 
                 v-for="(item, dimg) in dogImages.message"
                 :key="dimg"
-                :to="{ name: 'DogDetails', params: { id: item } }"
+                :to="{ name: 'DogDetails', params: { id: trimUrl(item) } }"
             >
                 <img :src="item" alt="Beautiful Dog" loading="lazy">
             </router-link>
@@ -23,6 +23,9 @@ export default {
         }
     },
     methods: {
+        trimUrl(url) {
+            return url.match(/\/([^/]+)\/[^/]*$/)[0];
+        }
     }
 };
 </script>
