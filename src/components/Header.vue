@@ -59,6 +59,10 @@ export default {
           font-weight:bold;
           font-size:1.5rem;
           color:var(--grash-300);
+
+          @media(prefers-color-scheme: dark) {
+              color:hsl(90, 20%, 75%) 
+          }
       }
   }
   .search {
@@ -78,6 +82,12 @@ export default {
         border-radius:10px;
         background-color:var(--grash-500);
 
+        @media(prefers-color-scheme: dark) {
+            border-color:var(--grash-200);
+            background-color:var(--grash-200);
+            color:var(--grash-500);
+        }
+
         &:focus {
             border-color:var(--grash-200);
         }
@@ -87,6 +97,12 @@ export default {
         right: 10px;
         opacity: .4;
         top:calc(50% - 20px / 2);
+        path{
+            stroke: var(--grash-100);
+            @media(prefers-color-scheme: dark) {
+            stroke: var(--grash-500);
+        }
+        }
       }
   }
 </style>

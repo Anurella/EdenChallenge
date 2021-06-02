@@ -13,4 +13,10 @@ export default {
 }
 </script>
 <style lang="scss">
+  @media (prefers-color-scheme: dark) {
+          body {
+              background-color:var(--grash-100);
+              color:var(--grash-500);
+          }  
+    }
 </style>

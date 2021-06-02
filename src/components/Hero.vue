@@ -2,7 +2,7 @@
     <section class="hero">
         <div class="hero__img">
             
-                <img sizes="(max-width: 1920px) 100vw, 19200px"
+                <img sizes="(max-width: 1920px) 100vw, 1920px"
             srcset="../assets/images/heroimg_200.jpg 200w,
             ../assets/images/heroimg_658.jpg 658w,
             ../assets/images/heroimg_981.jpg 981w,
@@ -49,6 +49,7 @@
         right: 0;
         img {
             height:100%;
+            width:100%;
            @media screen and (min-wdith:1440px){
                 object-fit: cover;
                 object-position: top center;
