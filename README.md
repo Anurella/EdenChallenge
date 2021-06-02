@@ -3,7 +3,7 @@ This is an interview work sample for EDEN. It entails developing a SPA to consum
 
 ##### The application features should allow:
 1. Users to see a list of at least 100 dog images by default when they load the application. 
-** The api has 50 as the maximum request ** 
+*The api has 50 as the maximum request* 
 2. Users be able to click on a dog image and be routed to a page where there’s more information about the dog.
 3. Users should be able to search for a dog via their breeds.
 

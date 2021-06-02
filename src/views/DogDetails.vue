@@ -3,7 +3,7 @@
         <Header />
         <section class="details">
             <div>
-                <img :src=getSrc(url) alt="">
+                <img :src=getSrc(url) alt="Beautiful Dogs" height="400">
                 <aside>
                     <p>
                     <span class="bold">Breed: </span> 
@@ -74,7 +74,7 @@ export default {
         justify-content: center;
         max-width: 700px;
         margin: 0 auto;
-        padding: 30px 0;
+        padding: 30px 0 0;
         align-content: center;
         align-items: center;
         @media screen and ( max-width:540px) {
@@ -90,9 +90,11 @@ export default {
       }
 
       aside {
-             margin-left:0;
+            margin-left:0;
+            margin-top:var(--spacing-20);
           @media screen and (min-width:768px) {
               margin-left:var(--spacing-20);
+               margin-top:0;
           }
         span  {
             font-size:1.2rem;
