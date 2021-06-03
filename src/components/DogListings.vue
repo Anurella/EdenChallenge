@@ -6,8 +6,10 @@
                 :key="dimg"
                 :to="{ name: 'DogDetails', params: { id: trimUrl(item) } }"
             >
-                <img :src="item" alt="Beautiful Dog" loading="lazy" @load="showImage" v-show="!imgShow">
-                <div class="loader" v-show="imgShow"></div>
+                <VueClazyLoad :src="item">
+                        <img :src="item" alt="Beautiful Dog" loading="lazy" width="300" height="300">
+                        <div class="loader" slot="placeholder"></div>
+                </VueClazyLoad>
             </router-link>
             
         </div>
@@ -19,8 +21,13 @@
 
 <script>
 
+import { VueClazyLoad } from 'vue-clazy-load'
+
 export default {
     name: 'DogListings',
+    components:{
+        VueClazyLoad,
+    },
     data() {
         return {
             arrayEmpty: true,
@@ -69,14 +76,22 @@ export default {
                 height:100px;
                 width:100%;
                 transition: transform .2s ease-out;
-
+                .loaded {
+                    height: 100%;
+                }
+                .loader {
+                     height:100px;
+                }
                 &:hover {
                     transform: scale(.9);
                     transition: transform .2s .05s cubic-bezier(0.075, 0.82, 0.165, 1);
                 }
 
             @media screen and (min-width: 600px) {
-                height:250px;
+                .loader {
+                     height:300px;
+                }
+                height:300px;
             }
                 img {
                     border-radius:10px;

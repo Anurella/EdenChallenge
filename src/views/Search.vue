@@ -9,9 +9,13 @@
              <ul class="search__list">
                  <li v-for="(item, dimg) in dogImages.message"
                 :key="dimg">
-                    <img :src="item" alt="Beautiful Dog" loading="lazy" @load="showImage" v-show="!imgShow" 
+                    <!-- <img :src="item" alt="Beautiful Dog" loading="lazy" @load="showImage" v-show="!imgShow" 
                         width="300" height="300">
-                   <div class="loader" v-show="imgShow"></div>
+                   <div class="loader" v-show="imgShow"></div> -->
+                   <VueClazyLoad :src="item">
+                        <img :src="item" alt="Beautiful Dog" loading="lazy" width="300" height="300">
+                        <div class="loader" slot="placeholder"></div>
+                    </VueClazyLoad>
                 </li>
              </ul>
         </section>
@@ -20,10 +24,13 @@
 
 <script>
 import Header from '@/components/Header.vue';
+import { VueClazyLoad } from 'vue-clazy-load'
+
     export default {
         name: "Search",
         components: {
             Header,
+            VueClazyLoad,
         },
         data() {
             return {
@@ -42,9 +49,9 @@ import Header from '@/components/Header.vue';
             }
         },
         watch: {
-            '$route.query.q'() {
-                this.$store.dispatch('getByBreed', (this.$route.query.q));
-            }
+            // '$route.query.q'() {
+            //     this.$store.dispatch('getByBreed', (this.$route.query.q));
+            // }
         },
         methods:{
             showImage() {
@@ -77,7 +84,15 @@ import Header from '@/components/Header.vue';
                 height:100px;
                 width:100%;
 
+                .loaded{
+                    height:100%;
+                }
+
             @media screen and (min-width: 768px) {
+
+                 .loader {
+                    height:300px;
+                }
                 height:auto;
             }
                 img {
@@ -90,8 +105,6 @@ import Header from '@/components/Header.vue';
      }
  }
 
- .loader {
-     height:300px;
- }
+
 
 </style>
