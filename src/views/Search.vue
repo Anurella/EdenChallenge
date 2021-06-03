@@ -9,7 +9,9 @@
              <ul class="search__list">
                  <li v-for="(item, dimg) in dogImages.message"
                 :key="dimg">
-                    <img :src="item" alt="Beautiful Dog" loading="lazy" width="300" height="300">
+                    <img :src="item" alt="Beautiful Dog" loading="lazy" @load="showImage" v-show="!imgShow" 
+                        width="300" height="300">
+                   <div class="loader" v-show="imgShow"></div>
                 </li>
              </ul>
         </section>
@@ -25,6 +27,7 @@ import Header from '@/components/Header.vue';
         },
         data() {
             return {
+                imgShow: true,
             }
         },
         mounted() {
@@ -42,13 +45,16 @@ import Header from '@/components/Header.vue';
             // '$route.query.q'() {
             //     this.$store.dispatch('getByBreed', (this.$route.query.q));
             // }
+        },
+        methods:{
+            showImage() {
+            this.imgShow = false;
+           },
         }
     }
 </script>
 
 <style lang="scss" scoped>
-
-
  .search {
      padding-top:80px;
       h1 {
@@ -82,6 +88,10 @@ import Header from '@/components/Header.vue';
                 }
             }
      }
+ }
+
+ .loader {
+     height:300px;
  }
 
 </style>

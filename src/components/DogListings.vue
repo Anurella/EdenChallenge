@@ -1,16 +1,18 @@
 <template>
     <section class="listings">
-        <div class="" v-if="!arrayEmpty">
+        <div class="listings__item" v-show="arrayEmpty">
             <router-link 
                 v-for="(item, dimg) in dogImages.message"
                 :key="dimg"
-                :to="{ name: 'DogDetails', params: { id: trimUrl(item) } }"
+                :to="{ path: '/dogdetails', params: { id: trimUrl(item) } }"
             >
-                <img :src="item" alt="Beautiful Dog" loading="lazy">
+                <img :src="item" alt="Beautiful Dog" loading="lazy" @load="showImage" v-show="!imgShow">
+                <div class="loader" v-show="imgShow"></div>
             </router-link>
+            
         </div>
-        <div v-if="arrayEmpty">
-             <h2> Sorry! There are dogs to view, Please refresh </h2>
+        <div v-show="!arrayEmpty">
+             <h2> Sorry! There are no dogs to view, Please refresh </h2>
         </div>
     </section>
 </template>
@@ -22,7 +24,8 @@ export default {
     name: 'DogListings',
     data() {
         return {
-            arrayEmpty: false,
+            arrayEmpty: true,
+            imgShow: true,
         }
     },
     computed: {
@@ -30,7 +33,21 @@ export default {
             return this.$store.state.dogImages;
         }
     },
-    methods: {
+    mounted() {
+        this.checkArray()
+    },
+    methods: { 
+        checkArray() {
+            if(this.$store.state.dogImages.length == 0) {
+                this.arrayEmpty = false;
+            }
+            else {
+                this.arrayEmpty = true;
+            }
+        },
+        showImage() {
+            this.imgShow = false;
+        },
         trimUrl(url) {
             return url.match(/\/([^/]+)\/[^/]*$/)[0];
         }
@@ -43,7 +60,11 @@ export default {
     .listings {
         content-visibility: auto;
         padding-bottom:var(--spacing-20);
-        div {
+
+        h2 {
+            text-align: center;
+        }
+        &__item {
             display: grid;
             grid-template-columns: repeat(3, 100px);
             min-width: 0;
@@ -75,4 +96,5 @@ export default {
             }
         }
     }
+
 </style>

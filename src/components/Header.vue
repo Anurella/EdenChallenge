@@ -22,7 +22,7 @@
                         <input type="text" role="searchbox" autocomplete="on" 
                             aria-label="Search by Dog Breed" placeholder="Search by dog breed" 
                             name="search" class="search__input"
-                            v-model="breedType" @keyup="removeError"
+                            v-model="breedType" @keyup.delete="removeError"
                         >
                         <svg aria-label="Search Icon" viewBox="0 0 24 24" class="search__view">
                             <path fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" 
@@ -62,14 +62,28 @@ export default {
         },
         processForm() {
             this.isLoading = true;
-            let tempBreed = (this.breedType).toLowerCase()
+            let tempBreed = (this.breedType).toLowerCase();
             if (this.doglist.includes(tempBreed)) {
-                // this.$router.push("/search?q="+tempBreed);
-                this.$store.dispatch('getByBreed', tempBreed)
+                 //check if it is the current Breed 
+                 if(tempBreed === this.$store.getters.getCurBreed) {
+                      this.$router.push({ 
+                            path: '/search', 
+                            query: {} 
+                       });
+                       this.isLoading = false;
+                 }
+                 else {
+                      this.$store.dispatch('getByBreed', tempBreed)
                     .then(() => {
                         this.isLoading = false;
-                        this.$router.replace("/search");
+                        //this.$router.push("/search");
+                        this.$router.push({ 
+                            path: '/search', 
+                            query: {} 
+                        })  
                     })
+                 }
+                // this.$router.push("/search?q="+tempBreed)
             }
             else {
                 this.isLoading = false;
