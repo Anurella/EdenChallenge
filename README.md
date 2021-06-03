@@ -18,7 +18,7 @@ This is an interview work sample for EDEN. It entails developing a SPA to consum
 ##### Issues Encountered 
 1. The api that generates random images regardless of the breed has a maximum amount of 50 as the number of random images it can send. I refactored the application to load a default breed so I could fetch 100 images.
 
-## Working Demo 
+## Working Demo  
 This [application](https://amazing-pare-62e287.netlify.app/) is hosted on Netlify.
 
 ## Project setup on local
@@ -34,4 +34,4 @@ npm run serve
 npm run lint
 ```
 ### Image Loader 
-[VueClazy](https://github.com/matheusgrieger/vue-clazy-load/blob/d8a99185ea7e84e6288f5531a9bc5150c5f70081/example/assets/css/main.css)
+[VueClazy](https://github.com/matheusgrieger/vue-clazy-load/blob/d8a99185ea7e84e6288f5531a9bc5150c5f70081/example/assets/css/main.css) was used to monitor when the image loaded fully.
