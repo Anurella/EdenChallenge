@@ -16,7 +16,7 @@
         </div>
         <div class="hero__text">
             <h1> 
-               Meet the <span> {{ title }}  </span> Breed
+               the <span> {{ title }}  </span> Breed
             </h1>
         </div>
     </section>
@@ -63,9 +63,13 @@
         img {
             height:100%;
             width:100%;
+             object-fit: cover;
            @media screen and (min-wdith:1440px){
                 object-fit: cover;
                 object-position: top center;
+           }
+           @media screen and (min-width:768px) {
+               object-position:center 28%;
            }
         }
       }

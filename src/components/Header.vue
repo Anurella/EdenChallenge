@@ -156,6 +156,10 @@ export default {
             color: var(--grash-100);
         }
 
+        @media screen and (max-width: 540px) {
+            height: 30px;
+        }
+
         &:focus {
             border-color:var(--grash-200);
             @media(prefers-color-scheme: dark) {
@@ -169,11 +173,11 @@ export default {
         right: 10px;
         opacity: .4;
         top:calc(50% - 20px / 2);
-        path{
-            stroke: var(--grash-100);
-            @media(prefers-color-scheme: dark) {
-            stroke: var(--grash-100);
-        }
+            path{
+                stroke: var(--grash-100);
+                @media(prefers-color-scheme: dark) {
+                stroke: var(--grash-100);
+            }
         }
       }
   }
@@ -206,6 +210,12 @@ export default {
 
 .error {
     margin-top:var(--spacing-10);
+
+    p {
+        @media screen and (max-width:540px) {
+            max-inline-size: 200px;
+        }
+    }
 }
 
 </style>
