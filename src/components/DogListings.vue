@@ -1,6 +1,6 @@
 <template>
     <section class="listings">
-        <div class="">
+        <div class="" v-if="!arrayEmpty">
             <router-link 
                 v-for="(item, dimg) in dogImages.message"
                 :key="dimg"
@@ -8,6 +8,9 @@
             >
                 <img :src="item" alt="Beautiful Dog" loading="lazy">
             </router-link>
+        </div>
+        <div v-if="arrayEmpty">
+             <h2> Sorry! There are dogs to view, Please refresh </h2>
         </div>
     </section>
 </template>
@@ -17,6 +20,11 @@
 
 export default {
     name: 'DogListings',
+    data() {
+        return {
+            arrayEmpty: false,
+        }
+    },
     computed: {
         dogImages() {
             return this.$store.state.dogImages;

@@ -1,8 +1,20 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import axios from 'axios'
+import axios from 'axios';
+import VuexPersistence from 'vuex-persist'
 
 Vue.use(Vuex);
+
+
+// using vue persist
+// save the dogList 
+const vuexLocal = new VuexPersistence({
+    storage: window.localStorage,
+    reducer: state => ({
+        dogList: state.dogList,
+        currentBreed: state.currentBreed,
+    }),
+  });
 
 export default new Vuex.Store({
     state: {
@@ -10,13 +22,18 @@ export default new Vuex.Store({
         dogList: [],
         currentBreed: ''
     },
+    plugins: [vuexLocal.plugin],
     getters: {
         dogList(state){
             return state.dogImages.message;
         },
+        getCurBreed(state) {
+            return state.currentBreed;
+        }
     },
     mutations: {
         setDogImages(state, list) {
+            localStorage.setItem('dogImages', list);
             state.dogImages = list;
         },
         byBreedImages(state, list) {
@@ -25,6 +42,8 @@ export default new Vuex.Store({
         updateList(state, list) {
             state.dogList = list;
         },
+        // initialiseList(state) {
+        // }
     },
     actions: {
         async getDogListing({ commit }) {

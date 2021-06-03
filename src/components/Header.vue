@@ -22,7 +22,7 @@
                         <input type="text" role="searchbox" autocomplete="on" 
                             aria-label="Search by Dog Breed" placeholder="Search by dog breed" 
                             name="search" class="search__input"
-                            v-model="breedType" v-on:keyup.down="this.isError = false"
+                            v-model="breedType" @keyup="removeError"
                         >
                         <svg aria-label="Search Icon" viewBox="0 0 24 24" class="search__view">
                             <path fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" 
@@ -57,6 +57,9 @@ export default {
         }
     },
     methods: {
+        removeError() {
+            this.isError = false;
+        },
         processForm() {
             this.isLoading = true;
             let tempBreed = (this.breedType).toLowerCase()
@@ -64,9 +67,8 @@ export default {
                 // this.$router.push("/search?q="+tempBreed);
                 this.$store.dispatch('getByBreed', tempBreed)
                     .then(() => {
-                        console.log("Stop Loading");
                         this.isLoading = false;
-                        this.$router.push("/search");
+                        this.$router.replace("/search");
                     })
             }
             else {
@@ -134,15 +136,15 @@ export default {
         background-color:var(--grash-500);
 
         @media(prefers-color-scheme: dark) {
-            border-color:var(--grash-200);
-            background-color:var(--grash-200);
-            color:var(--grash-500);
+            border-color:var(--grash-400);
+            background-color: var(--grash-400);
+            color: var(--grash-100);
         }
 
         &:focus {
             border-color:var(--grash-200);
             @media(prefers-color-scheme: dark) {
-                border-color:var(--grash-400);
+                border-color:var(--grash-500);
             }
         }
       }
@@ -155,7 +157,7 @@ export default {
         path{
             stroke: var(--grash-100);
             @media(prefers-color-scheme: dark) {
-            stroke: var(--grash-500);
+            stroke: var(--grash-100);
         }
         }
       }

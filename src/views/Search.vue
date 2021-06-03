@@ -9,7 +9,7 @@
              <ul class="search__list">
                  <li v-for="(item, dimg) in dogImages.message"
                 :key="dimg">
-                    <img :src="item" alt="Beautiful Dog" loading="lazy">
+                    <img :src="item" alt="Beautiful Dog" loading="lazy" width="300" height="300">
                 </li>
              </ul>
         </section>
@@ -27,8 +27,8 @@ import Header from '@/components/Header.vue';
             return {
             }
         },
-        created() {
-            // this.$store.dispatch('getByBreed', (this.$route.query.q));
+        mounted() {
+            this.$store.dispatch('getByBreed', (this.$store.getters.getCurBreed));
         },
         computed: {
             dogBreed() {
@@ -39,9 +39,9 @@ import Header from '@/components/Header.vue';
             }
         },
         watch: {
-            '$route.query.q'() {
-                this.$store.dispatch('getByBreed', (this.$route.query.q));
-            }
+            // '$route.query.q'() {
+            //     this.$store.dispatch('getByBreed', (this.$route.query.q));
+            // }
         }
     }
 </script>
