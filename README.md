@@ -16,7 +16,7 @@ This is an interview work sample for EDEN. It entails developing a SPA to consum
 7. The application should have a very neat and decent UI.
 
 ##### Issues Encountered 
-1. The api has a maximum amount of 50 as the number of random images it can send. 
+1. The api that generates random images regardless of the breed has a maximum amount of 50 as the number of random images it can send. 
 
 
 ## Working Demo 

@@ -33,8 +33,7 @@
 
 <style lang="scss" scoped>
   .hero {
-      margin-top: var(--spacing-20);
-      margin-bottom:var(--spacing-20);
+      margin-bottom:calc(2*var(--spacing-20));
       height:500px;
 
       @media screen and (max-width:540px) {

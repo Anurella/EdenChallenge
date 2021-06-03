@@ -36,9 +36,6 @@ export default {
             this.url = this.$route.params.id;
     },
     watch: {
-        '$route' (to, from) {
-            console.log(from.path)
-        }
     },
     methods: {
        fixBreed(breedName){

@@ -41,15 +41,21 @@ export default {
             min-width: 0;
             gap: var(--spacing-10);
             justify-content: center;
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width:600px) {
                 gap: var(--spacing-20);
                 grid-template-columns: repeat(4, minmax(min-content, 250px));
             }
             a {
                 height:100px;
                 width:100%;
+                transition: transform .2s ease-out;
 
-            @media screen and (min-width: 768px) {
+                &:hover {
+                    transform: scale(.9);
+                    transition: transform .2s .05s cubic-bezier(0.075, 0.82, 0.165, 1);
+                }
+
+            @media screen and (min-width: 600px) {
                 height:250px;
             }
                 img {
