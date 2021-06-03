@@ -16,9 +16,7 @@ This is an interview work sample for EDEN. It entails developing a SPA to consum
 7. The application should have a very neat and decent UI.
 
 ##### Issues Encountered 
-1. The api that generates random images regardless of the breed has a maximum amount of 50 as the number of random images it can send.
-2. On intial load, 50 images are loaded because the random api is called.  
-
+1. The api that generates random images regardless of the breed has a maximum amount of 50 as the number of random images it can send. I refactored the application to load a default breed so I could fetch 100 images.
 
 ## Working Demo 
 This [application](https://amazing-pare-62e287.netlify.app/) is hosted on Netlify.

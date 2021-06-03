@@ -51,7 +51,6 @@ export default {
             else {
                 // this.$store.dispatch('getByBreed', (this.$store.getters.getCurBreed));
             }
-             
         },
         trimUrl(url) {
             return url.match(/\/([^/]+)\/[^/]*$/)[0];

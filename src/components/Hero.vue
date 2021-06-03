@@ -16,8 +16,7 @@
         </div>
         <div class="hero__text">
             <h1> 
-                <span> Meet the </span>
-                <span> {{ title }} Breed </span>
+               Meet the <span> {{ title }}  </span> Breed
             </h1>
         </div>
     </section>
@@ -50,8 +49,7 @@
 <style lang="scss" scoped>
   .hero {
       margin-bottom:calc(2*var(--spacing-20));
-      height:500px;
-
+      height:300px;
       @media screen and (max-width:540px) {
           height:230px;
       }
@@ -69,22 +67,21 @@
                 object-fit: cover;
                 object-position: top center;
            }
-            // width:100%;
         }
       }
 
       &__text {
           display: grid;
           place-content: center;
-          background-color: rgba(26, 29, 22, 0.3);
+          background-color: rgba(26, 29, 22, 0.5);
           height:100%;
           h1 {
-              font-size:3rem;
+              font-size:2.2rem;
               color:var(--grash-500);
               text-transform: capitalize;
               text-align: center;
               span {
-                  display: inherit;
+                  color: var(--grash-300);
               }
           }
       }
