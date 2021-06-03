@@ -15,7 +15,10 @@
             
         </div>
         <div class="hero__text">
-            <h1> {{ title }} </h1>
+            <h1> 
+                <span> Meet the </span>
+                <span> {{ title }} Breed </span>
+            </h1>
         </div>
     </section>
 </template>
@@ -25,9 +28,22 @@
         name: 'Hero',
         data() {
             return {
-                title: 'Doggy Gram'
+                title: "Hounds"
             }
-        }
+        },
+        computed: {
+            getTitle() {
+                return this.$store.state.currentBreed
+            }
+        },
+        mounted() {
+            this.title = this.getTitle != "" ? this.getTitle : "Hounds"
+        },
+        watch: {
+            '$store.state.currentBreed': function() {
+                this.title = this.$store.state.currentBreed;
+            }
+        },
     }
 </script>
 
@@ -65,6 +81,11 @@
           h1 {
               font-size:3rem;
               color:var(--grash-500);
+              text-transform: capitalize;
+              text-align: center;
+              span {
+                  display: inherit;
+              }
           }
       }
   }

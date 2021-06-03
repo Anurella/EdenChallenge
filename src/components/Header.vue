@@ -66,21 +66,22 @@ export default {
             if (this.doglist.includes(tempBreed)) {
                  //check if it is the current Breed 
                  if(tempBreed === this.$store.getters.getCurBreed) {
-                      this.$router.push({ 
-                            path: '/search', 
-                            query: {} 
-                       });
-                       this.isLoading = false;
+                    //   this.$router.push({ 
+                    //         path: '/search', 
+                    //         query: {} 
+                    //    });
+                    //    this.isLoading = false;
+                     this.$store.commit('byBreedImages');
                  }
                  else {
                       this.$store.dispatch('getByBreed', tempBreed)
                     .then(() => {
                         this.isLoading = false;
                         //this.$router.push("/search");
-                        this.$router.push({ 
-                            path: '/search', 
-                            query: {} 
-                        })  
+                        // this.$router.push({ 
+                        //     path: '/search', 
+                        //     query: {} 
+                        // })  
                     })
                  }
                 // this.$router.push("/search?q="+tempBreed)

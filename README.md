@@ -16,7 +16,8 @@ This is an interview work sample for EDEN. It entails developing a SPA to consum
 7. The application should have a very neat and decent UI.
 
 ##### Issues Encountered 
-1. The api that generates random images regardless of the breed has a maximum amount of 50 as the number of random images it can send. 
+1. The api that generates random images regardless of the breed has a maximum amount of 50 as the number of random images it can send.
+2. On intial load, 50 images are loaded because the random api is called.  
 
 
 ## Working Demo 
@@ -34,4 +35,5 @@ npm run serve
 ```
 npm run lint
 ```
-
+### Image Loader 
+[VueClazy](https://github.com/matheusgrieger/vue-clazy-load/blob/d8a99185ea7e84e6288f5531a9bc5150c5f70081/example/assets/css/main.css)

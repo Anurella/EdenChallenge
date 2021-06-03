@@ -31,7 +31,6 @@ export default {
     data() {
         return {
             arrayEmpty: true,
-            imgShow: true,
         }
     },
     computed: {
@@ -39,12 +38,20 @@ export default {
             return this.$store.state.dogImages;
         }
     },
+    created() {
+    },
     mounted() {
-        
+        this.checkList();
     },
     methods: { 
-        showImage() {
-            this.imgShow = false;
+        checkList() {
+            if(this.$store.state.dogImages.length == 0 && this.$store.getters.getCurBreed == "") {
+                this.$store.dispatch('getByBreed', 'hound');
+            }
+            else {
+                // this.$store.dispatch('getByBreed', (this.$store.getters.getCurBreed));
+            }
+             
         },
         trimUrl(url) {
             return url.match(/\/([^/]+)\/[^/]*$/)[0];

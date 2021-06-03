@@ -8,7 +8,6 @@
 export default {
     name: "App",
     mounted() {
-      this.$store.dispatch('getDogListing');
       this.$store.dispatch('getDogList');
     }
 }

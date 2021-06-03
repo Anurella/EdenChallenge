@@ -11,6 +11,7 @@ Vue.use(Vuex);
 const vuexLocal = new VuexPersistence({
     storage: window.localStorage,
     reducer: state => ({
+        dogImages: state.dogImages,
         dogList: state.dogList,
         currentBreed: state.currentBreed,
     }),
@@ -31,7 +32,6 @@ export default new Vuex.Store({
     },
     mutations: {
         setDogImages(state, list) {
-            localStorage.setItem('dogImages', list);
             state.dogImages = list;
         },
         byBreedImages(state, list) {
