@@ -4,7 +4,7 @@
             <router-link 
                 v-for="(item, dimg) in dogImages.message"
                 :key="dimg"
-                :to="{ path: '/dogdetails', params: { id: trimUrl(item) } }"
+                :to="{ name: 'DogDetails', params: { id: trimUrl(item) } }"
             >
                 <img :src="item" alt="Beautiful Dog" loading="lazy" @load="showImage" v-show="!imgShow">
                 <div class="loader" v-show="imgShow"></div>
@@ -18,7 +18,6 @@
 </template>
 
 <script>
-// import { mapGetters } from 'vuex';
 
 export default {
     name: 'DogListings',
@@ -34,17 +33,9 @@ export default {
         }
     },
     mounted() {
-        this.checkArray()
+        
     },
     methods: { 
-        checkArray() {
-            if(this.$store.state.dogImages.length == 0) {
-                this.arrayEmpty = false;
-            }
-            else {
-                this.arrayEmpty = true;
-            }
-        },
         showImage() {
             this.imgShow = false;
         },

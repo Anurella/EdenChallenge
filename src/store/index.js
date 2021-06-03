@@ -20,16 +20,14 @@ export default new Vuex.Store({
     state: {
         dogImages: [],
         dogList: [],
-        currentBreed: ''
+        currentBreed: '',
+
     },
     plugins: [vuexLocal.plugin],
     getters: {
-        dogList(state){
-            return state.dogImages.message;
-        },
         getCurBreed(state) {
             return state.currentBreed;
-        }
+        },
     },
     mutations: {
         setDogImages(state, list) {

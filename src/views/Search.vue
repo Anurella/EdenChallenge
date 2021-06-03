@@ -42,9 +42,9 @@ import Header from '@/components/Header.vue';
             }
         },
         watch: {
-            // '$route.query.q'() {
-            //     this.$store.dispatch('getByBreed', (this.$route.query.q));
-            // }
+            '$route.query.q'() {
+                this.$store.dispatch('getByBreed', (this.$route.query.q));
+            }
         },
         methods:{
             showImage() {
