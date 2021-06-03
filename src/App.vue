@@ -6,17 +6,17 @@
 
 <script>
 export default {
-    name: "App",
+    name: 'App',
     mounted() {
-      this.$store.dispatch('getDogList');
-    }
-}
+        this.$store.dispatch('getDogList');
+    },
+};
 </script>
 <style lang="scss">
-  @media (prefers-color-scheme: dark) {
-          body {
-              background-color:var(--grash-100);
-              color:var(--grash-500);
-          }  
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--grash-100);
+        color: var(--grash-500);
     }
+}
 </style>

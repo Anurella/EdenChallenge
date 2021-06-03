@@ -2,7 +2,7 @@
     <div class="home">
         <Header />
         <Hero />
-        <DogListings/>
+        <DogListings />
     </div>
 </template>
 

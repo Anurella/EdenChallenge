@@ -3,6 +3,7 @@ node_modules
 /dist
 babel.config.js
 package-lock.json
+/src/views/Search.vue
 
 # local env files
 .env.local
@@ -23,4 +24,3 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
-
